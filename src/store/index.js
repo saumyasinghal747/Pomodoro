@@ -109,7 +109,7 @@ export default new Vuex.Store({
 
       ipcRenderer.send('RPUpdate', {
         endTimestamp: Date.now()+state.timer, // this should stay equal,
-        state: {pomo:'Working',short:'5 minute break', long:'15 minute break'}[state.status],
+        state: {pomo:'Working',short:`${state.settings.duration.short} minute break`, long:`${state.settings.duration.long} minute break`}[state.status],
         details: getters.title,
         instance: true,
         paused: state.isPaused
